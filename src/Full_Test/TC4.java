@@ -32,7 +32,7 @@ public class TC4 {
 
         // stg 접속
         driver.get("https://www.stg.kurly.com/member/login?return_url=/mypage");
-        Thread.sleep(1500);
+        Thread.sleep(100);
 
         // 현재창 핸들
         String winHandleBefore = driver.getWindowHandle();
