@@ -16,7 +16,7 @@ public class TC55 {
 
     @Test
     public void T55() throws InterruptedException {
-        System.setProperty("webdriver.chrome.driver", "/Users/mk-am14-030/Documents/selenium/chromedriver");
+        System.setProperty("webdriver.chrome.driver", "/Users/mk-mac-190/Documents/selenium/chromedriver");
 
         Map<String, String> mobileEmulation = new HashMap<>();
 

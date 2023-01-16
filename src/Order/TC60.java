@@ -18,7 +18,7 @@ public class TC60 {
 
     @Test
     public void TC60() throws InterruptedException {
-        System.setProperty("webdriver.chrome.driver", "/Users/mk-am14-030/Documents/selenium/chromedriver");
+        System.setProperty("webdriver.chrome.driver", "/Users/mk-mac-190/Documents/selenium/chromedriver");
 
         Map<String, String> mobileEmulation = new HashMap<>();
 
