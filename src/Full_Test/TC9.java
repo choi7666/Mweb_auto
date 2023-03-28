@@ -16,13 +16,14 @@ public class TC9 {
 
     @Test
     public void TC9() throws InterruptedException {
-        System.setProperty("webdriver.chrome.driver", "/Users/mk-mac-190/Documents/selenium/chromedriver");
+        System.setProperty("webdriver.chrome.driver", "/Users/mk-am14-008/Documents/selenium/chromedriver");
 
         Map<String, String> mobileEmulation = new HashMap<>();
 
         mobileEmulation.put("deviceName", "Samsung Galaxy S20 Ultra");
 
         ChromeOptions chromeOptions = new ChromeOptions();
+chromeOptions.addArguments("--remote-allow-origins=*");
 
         chromeOptions.setExperimentalOption("mobileEmulation", mobileEmulation);
 
