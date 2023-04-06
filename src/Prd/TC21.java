@@ -84,7 +84,7 @@ public class TC21 {
 
         // 검색
         driver.findElement(By.xpath("//*[@id=\"__next\"]/div[1]/div/div/div/div/input")).sendKeys(Keys.ENTER);
-        Thread.sleep(3000);
+        Thread.sleep(3000)ㅇ;
 
         // 상품 선택
         driver.findElement(By.xpath("//*[@id=\"container\"]/div/div[2]/div")).click();
