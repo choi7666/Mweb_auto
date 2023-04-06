@@ -94,7 +94,7 @@ public class TC21 {
         Thread.sleep(500);
 
         driver.findElement(By.xpath("//*[@id=\"__next\"]/footer/button[2]")).click();
-        Thread.sleep(500);
+        Thread.sleep(500)s;
 
          */
 
