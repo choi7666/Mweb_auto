@@ -1,4 +1,4 @@
-package Prd_detail;
+package Full_Test;
 
 import org.junit.Assert;
 import org.junit.Test;
@@ -15,12 +15,12 @@ import java.time.Duration;
 import java.util.HashMap;
 import java.util.Map;
 
-public class TC14 {
+public class TC11 {
 
     private static WebDriver driver;
 
     @Test
-    public void TC14() throws InterruptedException {
+    public void TC11() throws InterruptedException {
 
         ChromeOptions ops = new ChromeOptions();
         ops.addArguments("--remote-allow-origins=*");
@@ -55,7 +55,7 @@ public class TC14 {
         String winHandleBefore = driver.getWindowHandle();
 
         // 아이디 입력
-        driver.findElement(By.xpath("//*[@id=\"__next\"]/div[3]/form/div[1]/div[1]/div/input")).sendKeys("webauto4");
+        driver.findElement(By.xpath("//*[@id=\"__next\"]/div[3]/form/div[1]/div[1]/div/input")).sendKeys("webauto1");
 
         // 패스워드 입력
         WebElement pw_input = wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[@id=\"__next\"]/div[3]/form/div[1]/div[2]/div/input")));
@@ -73,52 +73,41 @@ public class TC14 {
         login_btn.click();
 
         Thread.sleep(2000);
-        // 장바구니 아이콘 클릭
-        WebElement cart_btn = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@id=\"__next\"]/div[1]/div/div/div[2]/button[2]")));
-        cart_btn.click();
+
+        // 검색 탭
+        WebElement serch_btn = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@id=\"__next\"]/div[4]/a[3]")));
+        serch_btn.click();
+
+        // 키워드 입력
+        WebElement keyword_btn = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@id=\"__next\"]/div[1]/div/div[3]/div/input")));
+        keyword_btn.click();
+        WebElement keyinput_btn = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@id=\"__next\"]/div[1]/div/div/div/div/input")));
+        keyinput_btn.sendKeys("성인");
 
 
-        // 쿠폰다운로드 배너 상품 선택
-        WebElement couponbaner_btn = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@id=\"__next\"]/ul/li[1]/div/div/div/a/span")));
-        couponbaner_btn.click();
+        // 검색
+
+        WebElement keyinputenter_btn = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@id=\"__next\"]/div[1]/div/div/div/div/input")));
+        keyinputenter_btn.sendKeys(Keys.ENTER);
+
+        // 상품 선택
+        WebElement product1_btn = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@id=\"container\"]/div/div[2]/div[1]/div[2]/a[2]/div[1]/div/span/img")));
+        product1_btn.click();
 
 
-        // 쿠폰다운로드 배너 확인
-        WebElement couponbaner = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@id=\"__next\"]/div[3]/div[1]/div[2]/button/span")));
-        Assert.assertEquals("[자동화] 쿠폰배너", driver.findElement(By.xpath("//*[@id=\"__next\"]/div[3]/div[1]/div[2]/button/span")).getText());
-        Thread.sleep(100);
-        System.out.println("쿠폰다운로드배너 노출 확인");
+        //Thread.sleep(3000);
 
 
-        for (int i = 0; i < 5; i++) {
-            driver.findElement(By.cssSelector("body")).sendKeys(Keys.ARROW_DOWN);
-        }
 
-        Thread.sleep(500);
-
-
-        // 쿠폰다운도드 배너 정보
-       // Thread.sleep(5000);
-        WebElement couponbaner1_btn = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@id=\"__next\"]/div[3]/div[1]/div[2]/button")));
-        couponbaner1_btn.click();
-
-        WebElement couponbaner2 = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("/html/body/div[2]/div[3]/div/div")));
-        Assert.assertEquals("이미 발급된 쿠폰입니다.\n" +
-                "10%\n" +
-                "종관 카페쿠폰\n" +
-                "기간제한 없음\n" +
-                "100원 이상 주문 시 최대 1,000원 할인\n" +
-                "카카오페이 결제시\n" +
-                "확인", driver.findElement(By.xpath("/html/body/div[2]/div[3]/div/div")).getText());
-        System.out.println("쿠폰다운도드 배너 정보");
+        // 성인인증 팝업
+        WebElement popup1 = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@id=\"__next\"]/div/div[3]/h2")));
+        Assert.assertEquals("본 상품은 성인인증이 필요합니다.", driver.findElement(By.xpath("//*[@id=\"__next\"]/div/div[3]/h2")).getText());
+        System.out.println("성인인증 팝업 확인");
         Thread.sleep(1000);
-
 
 
         driver.close();
 
 
     }
-
-
 }

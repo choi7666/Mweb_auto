@@ -5,98 +5,120 @@ import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
-import java.util.Date;
+import java.time.Duration;
 import java.util.HashMap;
 import java.util.Map;
 
 public class TC18 {
 
-    private static WebDriver driver;
+        private static WebDriver driver;
 
-    @Test
-    public void T18() throws InterruptedException {
-        System.setProperty("webdriver.chrome.driver", "/Users/mk-am14-008/Documents/selenium/chromedriver");
+        @Test
+        public void TC18() throws InterruptedException {
 
-        Map<String, String> mobileEmulation = new HashMap<>();
-
-        mobileEmulation.put("deviceName", "Samsung Galaxy S20 Ultra");
-
-        ChromeOptions chromeOptions = new ChromeOptions();
-chromeOptions.addArguments("--remote-allow-origins=*");
-
-        chromeOptions.setExperimentalOption("mobileEmulation", mobileEmulation);
-
-        WebDriver driver = new ChromeDriver(chromeOptions);
+                ChromeOptions ops = new ChromeOptions();
+                ops.addArguments("--remote-allow-origins=*");
+                ops.addArguments("--disable-extensions");
+                ops.addArguments("--disable-gpu");
 
 
-        // stg 접속
-        driver.get("https://www.stg.kurly.com/member/login?return_url=/mypage");
-        Thread.sleep(1500);
+                System.setProperty("webdriver.chrome.driver", "/Users/mk-am14-008/Documents/selenium/chromedriver");
 
-        // 현재창 핸들
-        String winHandleBefore = driver.getWindowHandle();
+                Map<String, String> mobileEmulation = new HashMap<>();
 
-        // 아이디 입력
-        driver.findElement(By.xpath("//*[@id=\"__next\"]/div[3]/form/div[1]/div[1]/div/input")).sendKeys("webauto");
-        Thread.sleep(500);
+                mobileEmulation.put("deviceName", "Samsung Galaxy S20 Ultra");
 
-        // 패스워드 입력
-        driver.findElement(By.xpath("//*[@id=\"__next\"]/div[3]/form/div[1]/div[2]/div/input")).sendKeys("qawsedrf12");
-        Thread.sleep(500);
+                ChromeOptions chromeOptions = new ChromeOptions();
+                chromeOptions.addArguments("--remote-allow-origins=*");
 
-        // 로그인 버튼 클릭
-        driver.findElement(By.xpath("//*[@id=\"__next\"]/div[3]/form/div[3]/button[1]")).click();
-        Thread.sleep(1200);
+                chromeOptions.setExperimentalOption("mobileEmulation", mobileEmulation);
 
-        // 검색 탭
-        driver.findElement(By.xpath("//*[@id=\"__next\"]/div[4]/a[3]")).click();
-        Thread.sleep(500);
+                WebDriver driver = new ChromeDriver(chromeOptions);
 
-        // 키워드 입력
-        driver.findElement(By.xpath("//*[@id=\"__next\"]/div[1]/div/div[3]/div/input")).click();
-        Thread.sleep(1000);
-        driver.findElement(By.xpath("//*[@id=\"__next\"]/div[1]/div/div/div/div/input")).sendKeys("첵스");
-        Thread.sleep(1300);
 
-        // 검색
-        driver.findElement(By.xpath("//*[@id=\"__next\"]/div[1]/div/div/div/div/input")).sendKeys(Keys.ENTER);
-        Thread.sleep(3000);
+                // stg 접속
+                driver.get("https://www.stg.kurly.com/member/login?return_url=/mypage");
 
-        //장바구니 담기
-        driver.findElement(By.xpath("//*[@id=\"container\"]/div/div[2]/div[1]/div[1]/div/div/button")).click();
-        Thread.sleep(500);
-        driver.findElement(By.xpath("/html/body/div[2]/div[3]/div/div[3]/button[2]")).click();
-        Thread.sleep(1000);
+                // 최대 10초 동안 대기
+                WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
 
-        // 장바구니 이동
-        driver.findElement(By.xpath("//*[@id=\"swal2-content\"]/div[2]/button[1]")).click();
-        Thread.sleep(3000);
+                // id가 input 요소가 나타날 때까지 대기
+                WebElement element = wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[@id=\"__next\"]/div[3]/form/div[1]/div[1]/div/input")));
 
-        // 상품 장바구니 담김 확인
-        Assert.assertEquals("[켈로그] 첵스 초코", driver.findElement(By.xpath("//*[@id=\"__next\"]/ul[2]/li[1]/div/div/a")).getText());
-        System.out.println("상품 정상 담김 확인");
-        Thread.sleep(1000);
+                // 현재창 핸들
+                String winHandleBefore = driver.getWindowHandle();
 
-        //전체 체크 해제
-        driver.findElement(By.xpath("//*[@id=\"__next\"]/div[5]/div/label/img")).click();
-        Thread.sleep(1000);
+                // 아이디 입력
+                driver.findElement(By.xpath("//*[@id=\"__next\"]/div[3]/form/div[1]/div[1]/div/input")).sendKeys("webauto7");
 
-        //주문 상품 체크
-        driver.findElement(By.xpath("//*[@id=\"__next\"]/ul[2]/li[1]/div/label/img")).click();
-        Thread.sleep(1000);
+                // 패스워드 입력
+                WebElement pw_input = wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[@id=\"__next\"]/div[3]/form/div[1]/div[2]/div/input")));
+                pw_input.sendKeys("testtest00");
 
-        //상품 삭제 버튼 클릭
-        driver.findElement(By.xpath("//*[@id=\"__next\"]/ul[2]/li[1]/div/button")).click();
-        Thread.sleep(1000);
 
-        //상품 삭제 얼럿 확인 클릭
-        driver.findElement(By.xpath("//*[@id=\"swal2-content\"]/div[2]/button[2]")).click();
-        Thread.sleep(1000);
+                // 로그인 버튼 클릭
+                WebElement login_btn = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@id=\"__next\"]/div[3]/form/div[3]/button[1]")));
+                login_btn.click();
 
-        driver.close();
+                Thread.sleep(2000);
 
-    }
+                // 검색 탭
+                WebElement serch_btn = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@id=\"__next\"]/div[4]/a[3]")));
+                serch_btn.click();
+
+
+                // 키워드 입력
+
+                WebElement keyword16_btn = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@id=\"__next\"]/div[1]/div/div[3]/div/input")));
+                keyword16_btn.click();
+                WebElement keywordinput16_btn = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@id=\"__next\"]/div[1]/div/div/div/div/input")));
+                keywordinput16_btn.sendKeys("[자동화]");
+
+
+                // 검색
+                WebElement serch16_btn = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@id=\"__next\"]/div[1]/div/div/div/div/input")));
+                serch16_btn.sendKeys(Keys.ENTER);
+
+                //장바구니 담기
+                WebElement cart18_btn = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@id=\"container\"]/div/div[2]/div[1]/div[2]/a[1]/div[1]/div/div/button/img")));
+                cart18_btn.click();
+                WebElement cart18a_btn = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("/html/body/div[2]/div[3]/div/div[3]/button")));
+                cart18a_btn.click();
+
+
+                // 장바구니 이동
+
+                driver.get("https://www.stg.kurly.com/cart");
+                Thread.sleep(1000);
+
+                // 상품 장바구니 담김 확인
+                WebElement serch18 = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@id=\"__next\"]/ul/li/div/div/a/p")));
+                Assert.assertEquals("[자동화] 오토상온", driver.findElement(By.xpath("//*[@id=\"__next\"]/ul/li/div/div/a/p")).getText());
+                System.out.println("상품 정상 담김 확인");
+
+                //전체 체크 해제
+                WebElement allcheck_btn = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@id=\"__next\"]/div[5]/div/label/div")));
+                allcheck_btn.click();
+
+                //주문 상품 체크
+                WebElement checkbox_btn = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@id=\"__next\"]/ul/li/div/label/div")));
+                checkbox_btn.click();
+
+                //상품 삭제 버튼 클릭
+                WebElement delbox_btn = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@id=\"__next\"]/div[5]/div/button")));
+                delbox_btn.click();
+
+                //상품 삭제 얼럿 확인 클릭
+                WebElement delconfirm_btn = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@id=\"swal2-content\"]/div[2]/button[2]")));
+                delconfirm_btn.click();
+
+                driver.close();
+
+        }
 }

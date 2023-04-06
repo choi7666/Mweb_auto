@@ -20,6 +20,13 @@ public class TC8 {
 
     @Test
     public void TC8() throws InterruptedException {
+
+        ChromeOptions ops = new ChromeOptions();
+        ops.addArguments("--remote-allow-origins=*");
+        ops.addArguments("--disable-extensions");
+        ops.addArguments("--disable-gpu");
+
+
         System.setProperty("webdriver.chrome.driver", "/Users/mk-am14-008/Documents/selenium/chromedriver");
 
         Map<String, String> mobileEmulation = new HashMap<>();
@@ -27,7 +34,7 @@ public class TC8 {
         mobileEmulation.put("deviceName", "Samsung Galaxy S20 Ultra");
 
         ChromeOptions chromeOptions = new ChromeOptions();
-chromeOptions.addArguments("--remote-allow-origins=*");
+        chromeOptions.addArguments("--remote-allow-origins=*");
 
         chromeOptions.setExperimentalOption("mobileEmulation", mobileEmulation);
 
@@ -53,22 +60,35 @@ chromeOptions.addArguments("--remote-allow-origins=*");
         WebElement pw_input = wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[@id=\"__next\"]/div[3]/form/div[1]/div[2]/div/input")));
         pw_input.sendKeys("testtest00");
 
+
+        /* 카카카오 문구 확인
+        WebElement kakao = wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[@id=\"__next\"]/div[3]/form/div[5]/p")));
+        Assert.assertEquals("카카오로 간편하게 시작하세요", driver.findElement(By.xpath("//*[@id=\"__next\"]/div[3]/form/div[5]/p")).getText());
+        System.out.println("카카오 문구 확인"); */
+
+
         // 로그인 버튼 클릭
         WebElement login_btn = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@id=\"__next\"]/div[3]/form/div[3]/button[1]")));
         login_btn.click();
+
 
         // 장바구니 아이콘 클릭
         WebElement cart_btn = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@id=\"__next\"]/div[1]/div/div/div[2]/button[2]")));
         cart_btn.click();
 
+
+
         // 정률상품 판매가격
-        WebElement prd = wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[@id=\"__next\"]/ul/li[2]/div/div/div/div/span/span[2]")));
+        Thread.sleep(5000);
         Assert.assertEquals("20,000원", driver.findElement(By.xpath("//*[@id=\"__next\"]/ul/li[2]/div/div/div/div/span/span[2]")).getText());
         System.out.println("정률상품 판매가격 노출 확인");
+        //Thread.sleep(500);
+
 
         // 정률상품 할인가격
         Assert.assertEquals("18,000원", driver.findElement(By.xpath("//*[@id=\"__next\"]/ul/li[2]/div/div/div/div/span/span[1]")).getText());
         System.out.println("정률상품 할인가격 노출 확인");
+        //Thread.sleep(1000);
 
 
         // after

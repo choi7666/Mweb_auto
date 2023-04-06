@@ -76,18 +76,17 @@ public class TC5 {
         WebElement cart_btn = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@id=\"__next\"]/div[1]/div/div/div[2]/button[2]")));
         cart_btn.click();
 
-
+        Thread.sleep(2000);
         // 냉장>냉동>상온>구매 불가 순
 
-        Thread.sleep(2000);
         Assert.assertEquals("냉장 상품", driver.findElement(By.xpath("//*[@id=\"__next\"]/div[8]/div/div/span")).getText());
-        Thread.sleep(500);
+        Thread.sleep(100);
         Assert.assertEquals("냉동 상품", driver.findElement(By.xpath("//*[@id=\"__next\"]/div[11]/div/div/span")).getText());
-        Thread.sleep(500);
+        Thread.sleep(100);
         Assert.assertEquals("상온 상품", driver.findElement(By.xpath("//*[@id=\"__next\"]/div[14]/div/div/span")).getText());
-        Thread.sleep(500);
+        Thread.sleep(100);
         Assert.assertEquals("구매불가 상품", driver.findElement(By.xpath("//*[@id=\"__next\"]/div[17]/div/h4/div/span")).getText());
-        Thread.sleep(500);
+        Thread.sleep(100);
         System.out.println("냉장>냉동>상온>구매불가 순 노출");
 
 
