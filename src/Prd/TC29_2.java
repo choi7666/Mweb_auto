@@ -3,6 +3,7 @@ package Prd;
 import org.junit.Assert;
 import org.junit.Test;
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -14,18 +15,19 @@ import java.time.Duration;
 import java.util.HashMap;
 import java.util.Map;
 
-public class TC33 {
+public class TC29_2 {
 
     private static WebDriver driver;
 
+
+
     @Test
-    public void TC33() throws InterruptedException {
+    public void TC29_2() throws InterruptedException {
 
         ChromeOptions ops = new ChromeOptions();
         ops.addArguments("--remote-allow-origins=*");
         ops.addArguments("--disable-extensions");
         ops.addArguments("--disable-gpu");
-
 
         System.setProperty("webdriver.chrome.driver", "/Users/mk-am14-008/Documents/selenium/chromedriver");
 
@@ -40,7 +42,6 @@ public class TC33 {
 
         WebDriver driver = new ChromeDriver(chromeOptions);
 
-
         // stg 접속
         driver.get("https://www.stg.kurly.com/member/login?return_url=/mypage");
 
@@ -54,12 +55,11 @@ public class TC33 {
         String winHandleBefore = driver.getWindowHandle();
 
         // 아이디 입력
-        driver.findElement(By.xpath("//*[@id=\"__next\"]/div[3]/form/div[1]/div[1]/div/input")).sendKeys("webauto14");
+        driver.findElement(By.xpath("//*[@id=\"__next\"]/div[3]/form/div[1]/div[1]/div/input")).sendKeys("webauto12");
 
         // 패스워드 입력
         WebElement pw_input = wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[@id=\"__next\"]/div[3]/form/div[1]/div[2]/div/input")));
         pw_input.sendKeys("testtest00");
-
 
         // 로그인 버튼 클릭
         WebElement login_btn = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@id=\"__next\"]/div[3]/form/div[3]/button[1]")));
@@ -67,31 +67,32 @@ public class TC33 {
 
         Thread.sleep(2000);
 
-        // 예약상품 이동
-        driver.get("https://www.stg.kurly.com/goods/1000054503");
-
-        //주문하기
-        WebElement order_btn = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@id=\"__next\"]/footer/button[2]")));
-        order_btn.click();
-
-        // 바로구매 팝업
-        WebElement orderpop_btn = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("/html/body/div[2]/div[3]/div/div[3]/button")));
-        orderpop_btn.click();
 
 
-        //주문서 페이지 확인
-        WebElement order = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@id=\"__next\"]/button[1]/span/span/div/div/span[1]")));
-        Assert.assertEquals("[자동화] 오토예약", driver.findElement(By.xpath("//*[@id=\"__next\"]/button[1]/span/span/div/div/span[1]")));
 
-        //*[@id="__next"]/button[1]/span/span/div/div/span[1]
-       // Assert.assertEquals("주문서", driver.findElement(By.xpath("//*[@id=\"__next\"]/div[1]/div/div[2]/h1")).getText());
-        System.out.println("예약상품 -> 주문서 이동 확인");
+        driver.get("https://www.stg.kurly.com/search?sword=%5B%EC%9E%90%EB%8F%99%ED%99%94%5D%20cc%EB%B3%84%ED%95%A0%EC%9D%B8");
+
+
+        // 정율 상품 장바구니 팝업
+        WebElement selectpro_btn = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@id=\"container\"]/div/div[2]/div[1]/div[2]/a/div[1]/div/div/button")));
+        selectpro_btn.click();
+
+        for (int i = 0; i < 5; i++) {
+            driver.findElement(By.cssSelector("body")).sendKeys(Keys.ARROW_DOWN);
+        }
+
+
+        // 1CC 대표가 확인
+        WebElement cartcost_btn = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("/html/body/div[2]/div[3]/div/div[2]/div[2]/div[1]/div[2]/div[1]")));
+
+
+        Assert.assertEquals("10,000원20,000원", driver.findElement(By.xpath("/html/body/div[2]/div[3]/div/div[2]/div[2]/div[1]/div[2]/div[1]")).getText());
+        System.out.println("2cc 할인적용 확인");
+
         Thread.sleep(1000);
-
-
-
         driver.close();
 
     }
 
 }
+
