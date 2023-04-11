@@ -107,7 +107,7 @@ public class TC4 {
     @After
     public void after() throws Exception {
 
-        // 최대 10초 동안 대기
+        // 최대 10초 동안 대기.
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 
         // 현재창 핸들
