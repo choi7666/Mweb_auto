@@ -59,17 +59,18 @@ public class TC47 {
                 // 패스워드 입력
                 WebElement pw_input = wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[@id=\"__next\"]/div[3]/form/div[1]/div[2]/div/input")));
                 pw_input.sendKeys("testtest00");
-
+                Thread.sleep(500);
 
 
                 // 로그인 버튼 클릭
                 WebElement login_btn = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@id=\"__next\"]/div[3]/form/div[3]/button[1]")));
                 login_btn.click();
-
+                Thread.sleep(2000);
 
                 // 주문내역상세
                 WebElement orderdetail_btn = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@id=\"__next\"]/div[3]/div[3]/a[1]/div[1]")));
                 orderdetail_btn.click();
+                Thread.sleep(500);
 
                 // 주문내역 3년 정렬 후 진입
                 WebElement orderdetail3year_btn = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@id=\"__next\"]/div[3]/div[1]/button[4]")));
@@ -131,8 +132,8 @@ public class TC47 {
                 System.out.println("주문내역상세 하드코딩 문구 확인");
 
                 // 1:1문의하기 버튼
-                WebElement ask_btn = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@id=\"__next\"]/div[12]/div/span")));
-                Assert.assertEquals("1:1 문의하기", driver.findElement(By.xpath("//*[@id=\"__next\"]/div[12]/div/span")).getText());
+                WebElement ask_btn = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@id=\"__next\"]/div[12]/button/div/span")));
+                Assert.assertEquals("1:1 문의하기", driver.findElement(By.xpath("//*[@id=\"__next\"]/div[12]/button/div/span")).getText());
                 System.out.println("1:1 문의하기 버튼 확인");
 
 

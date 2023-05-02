@@ -79,7 +79,6 @@ public class TC10 {
         Assert.assertEquals("주문서", driver.findElement(By.xpath("//*[@id=\"__next\"]/div[1]/div[2]/div[2]/h1")).getText());
         System.out.println("주문서 페이지 이동 확인");
 
-
         // after
         driver.close();
 

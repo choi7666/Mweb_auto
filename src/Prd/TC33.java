@@ -77,18 +77,16 @@ public class TC33 {
         // 바로구매 팝업
         WebElement orderpop_btn = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("/html/body/div[2]/div[3]/div/div[3]/button")));
         orderpop_btn.click();
+        Thread.sleep(2000);
 
 
         //주문서 페이지 확인
-        WebElement order = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@id=\"__next\"]/button[1]/span/span/div/div/span[1]")));
-        Assert.assertEquals("[자동화] 오토예약", driver.findElement(By.xpath("//*[@id=\"__next\"]/button[1]/span/span/div/div/span[1]")));
-
-        //*[@id="__next"]/button[1]/span/span/div/div/span[1]
-       // Assert.assertEquals("주문서", driver.findElement(By.xpath("//*[@id=\"__next\"]/div[1]/div/div[2]/h1")).getText());
+        WebElement orderpordname = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@id=\"__next\"]/button[1]/span/span/div/div/span[1]")));
+        Assert.assertEquals("[자동화] 오토예약", driver.findElement(By.xpath("//*[@id=\"__next\"]/button[1]/span/span/div/div/span[1]")).getText());
         System.out.println("예약상품 -> 주문서 이동 확인");
         Thread.sleep(1000);
 
-
+//*[@id="__next"]/button[1]/span/span/div/div/span[1]
 
         driver.close();
 

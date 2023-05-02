@@ -88,38 +88,29 @@ public class TC28 {
         WebElement selectpro_btn = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@id=\"container\"]/div/div[2]/div[1]/div[2]/a/div[1]/div/span/img")));
         selectpro_btn.click();
 
-        /* 멀티딜 상품 할인가 확인
-        WebElement prodetail_btn = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@id=\"__next\"]/div[3]/div[1]/div[2]/div[2]")));
-        Assert.assertEquals("50%10,000원~", driver.findElement(By.xpath("//*[@id=\"__next\"]/div[3]/div[1]/div[2]/div[2]")).getText());
-        System.out.println("판매가~ 노출 확인");
-        Thread.sleep(1000);
-
-         */
 
 
 
         // 옵션 선택
         WebElement option_btn = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@id=\"__next\"]/footer/button[2]")));
         option_btn.click();
-
-        //driver.findElement(By.xpath("//*[@id=\"__next\"]/footer/button[2]")).click();
-        Thread.sleep(500);
+        Thread.sleep(2000);
 
         // 옵션 항목 확인
 
         WebElement buypopup = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("/html/body/div[2]/div[3]/div/div[2]")));
         Assert.assertEquals("[자동화] 멀티딜할인\n" +
                 "[자동화] 멀티딜할인\n" +
-                "[자동화] 멀티딜할인\n" +
-                "20,000원\n" +
-                "0\n" +
-                "[자동화] 멀티딜할인1\n" +
-                "20,000원\n" +
+                "[자동화] 멀티딜할인3\n" +
+                "10,000원20,000원\n" +
                 "0\n" +
                 "[자동화] 멀티딜할인2\n" +
                 "20,000원\n" +
-                "0\n" + "[자동화] 멀티딜할인3\n" +
-                "10,000원20,000원\n" +
+                "0\n" +
+                "[자동화] 멀티딜할인\n" +
+                "20,000원\n" +
+                "0\n" + "[자동화] 멀티딜할인1\n" +
+                "20,000원\n" +
                 "0\n" +
                 "적립\n" +
                 "구매 시 0원 적립", driver.findElement(By.xpath("/html/body/div[2]/div[3]/div/div[2]")).getText());

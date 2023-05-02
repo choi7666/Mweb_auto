@@ -124,7 +124,6 @@ public class TC4 {
         // 기존창 전환
         driver.switchTo().window(winHandleBefore);
 
-
         driver.close();
 
 

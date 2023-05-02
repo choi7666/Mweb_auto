@@ -86,32 +86,6 @@ public class TC32 {
                 for (int i = 0; i < 5; i++) {
                         driver.findElement(By.cssSelector("body")).sendKeys(Keys.ARROW_DOWN);
                 }
-                /* 스탭퍼 수량 증가
-                WebElement puls_btn = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("/html/body/div[2]/div[3]/div/div[2]/div[2]/div[1]/div[2]/div[2]/button[2]")));
-                puls_btn.click();
-                //WebElement puls1_btn = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("/html/body/div[2]/div[3]/div/div[2]/div[2]/div[2]/div[2]/div[2]/button[2]")));
-                //puls1_btn.click();
-                //WebElement puls2_btn = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("/html/body/div[2]/div[3]/div/div[2]/div[2]/div[3]/div[2]/div[2]/button[2]")));
-                //puls2_btn.click();
-
-                WebElement popupcart_btn = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("/html/body/div[2]/div[3]/div/div[2]")));
-                Assert.assertEquals("[자동화] 오토멀티딜\n" +
-                        "[자동화] 오토멀티딜\n" +
-                        "[자동화] 오토멀티딜1\n" +
-                        "15,000원\n" +
-                        "1\n" +
-                        "[자동화] 오토멀티딜2\n" +
-                        "13,500원15,000원\n" +
-                        "1\n" +
-                        "[자동화] 오토멀티딜3\n" +
-                        "15,000원\n" +
-                        "1\n" +
-                        "적립\n" +
-                        "구매 시 2,175원 적립", driver.findElement(By.xpath("/html/body/div[2]/div[3]/div/div[2]")).getText());
-                System.out.println("정률 상품 장바구니 팝업 정보 확인");
-                Thread.sleep(1000);
-
-                 */
 
 
                 //장바구니 팝업 수량 확인

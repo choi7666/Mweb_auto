@@ -4,18 +4,29 @@ import org.junit.Assert;
 import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
+import java.time.Duration;
 import java.util.HashMap;
 import java.util.Map;
 
 public class TC60 {
 
-    private static WebDriver driver;
+        private static WebDriver driver;
 
-    @Test
-    public void TC60() throws InterruptedException {
+        @Test
+        public void TC60() throws InterruptedException {
+
+        ChromeOptions ops = new ChromeOptions();
+        ops.addArguments("--remote-allow-origins=*");
+        ops.addArguments("--disable-extensions");
+        ops.addArguments("--disable-gpu");
+
+
         System.setProperty("webdriver.chrome.driver", "/Users/mk-am14-008/Documents/selenium/chromedriver");
 
         Map<String, String> mobileEmulation = new HashMap<>();
@@ -23,7 +34,7 @@ public class TC60 {
         mobileEmulation.put("deviceName", "Samsung Galaxy S20 Ultra");
 
         ChromeOptions chromeOptions = new ChromeOptions();
-chromeOptions.addArguments("--remote-allow-origins=*");
+        chromeOptions.addArguments("--remote-allow-origins=*");
 
         chromeOptions.setExperimentalOption("mobileEmulation", mobileEmulation);
 
@@ -32,80 +43,66 @@ chromeOptions.addArguments("--remote-allow-origins=*");
 
         // stg 접속
         driver.get("https://www.stg.kurly.com/member/login?return_url=/mypage");
-        Thread.sleep(1500);
+
+        // 최대 10초 동안 대기
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
+
+        // id가 input 요소가 나타날 때까지 대기
+        WebElement element = wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[@id=\"__next\"]/div[3]/form/div[1]/div[1]/div/input")));
 
         // 현재창 핸들
         String winHandleBefore = driver.getWindowHandle();
 
         // 아이디 입력
-        driver.findElement(By.xpath("//*[@id=\"__next\"]/div[3]/form/div[1]/div[1]/div/input")).sendKeys("webauto3");
-        Thread.sleep(500);
+        driver.findElement(By.xpath("//*[@id=\"__next\"]/div[3]/form/div[1]/div[1]/div/input")).sendKeys("webauto21");
 
         // 패스워드 입력
-        driver.findElement(By.xpath("//*[@id=\"__next\"]/div[3]/form/div[1]/div[2]/div/input")).sendKeys("qawsedrf12");
-        Thread.sleep(500);
+        WebElement pw_input = wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[@id=\"__next\"]/div[3]/form/div[1]/div[2]/div/input")));
+        pw_input.sendKeys("testtest00");
+
+
 
         // 로그인 버튼 클릭
-        driver.findElement(By.xpath("//*[@id=\"__next\"]/div[3]/form/div[3]/button[1]")).click();
-        Thread.sleep(1500);
+        WebElement login_btn = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@id=\"__next\"]/div[3]/form/div[3]/button[1]")));
+        login_btn.click();
+        Thread.sleep(500);
 
-        // 장바구니
-        driver.findElement(By.xpath("//*[@id=\"__next\"]/div[1]/div/div/div[2]/button[2]")).click();
-        Thread.sleep(3000);
+        // 장바구니  이동
+        driver.get("https://www.stg.kurly.com/cart");
+        Thread.sleep(4000);
+
+
 
         // 주문하기 버튼 선택
-        driver.findElement(By.xpath("//*[@id=\"__next\"]/footer/button")).click();
-        Thread.sleep(3000);
+        WebElement order_btn = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@id=\"__next\"]/footer/button")));
+        order_btn.click();
+        Thread.sleep(4000);
+
+
+
 
         // 주문 상품
-        Assert.assertEquals("[스타우브] 화이트 트러플 라이스 꼬꼬떼 12cm\n" +
+        Assert.assertEquals("[자동화] 오토멀티딜1\n" +
                 "외\n" +
-                "2건", driver.findElement(By.xpath("//*[@id=\"__next\"]/button[1]/span/span/div")).getText());
+                "2건", driver.findElement(By.xpath("//*[@id=\"__next\"]/button[1]/span/span/div/div")).getText());
         Thread.sleep(1000);
         System.out.println("상품명 한줄 노출 확인");
 
         // 주문 상품 펼침 버튼 선택
-        driver.findElement(By.xpath("//*[@id=\"__next\"]/button[1]")).click();
-        Thread.sleep(1000);
+        WebElement ordername_btn = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@id=\"__next\"]/button[1]/span/span/span")));
+        ordername_btn.click();
+        Thread.sleep(500);
+
 
         // 단품_상품명
-        Assert.assertEquals("[켈로그] 첵스 초코", driver.findElement(By.xpath("//*[@id=\"__next\"]/ul/li[3]/div/div[1]/span")).getText());
-        System.out.println("단품 상품명 노출 확인");
-        Thread.sleep(1000);
-
-        // 단품_수량
-        Assert.assertEquals("1개", driver.findElement(By.xpath("//*[@id=\"__next\"]/ul/li[3]/div/div[2]/span[2]")).getText());
-        System.out.println("단품 수량 노출 확인");
-        Thread.sleep(1000);
-
-        // 단품_합계
-        Assert.assertEquals("3,580원", driver.findElement(By.xpath("//*[@id=\"__next\"]/ul/li[3]/div/div[2]/span[1]")).getText());
-        System.out.println("단품 합계 노출 확인");
-        Thread.sleep(1000);
-
-        // 패키지_상품명
-        Assert.assertEquals("[마더케이] 에코 아기 지퍼백 4종 패키지 대용량", driver.findElement(By.xpath("//*[@id=\"__next\"]/ul/li[2]/div/div[1]/span")).getText());
-        System.out.println("패키지 상품명 노출 확인");
-        Thread.sleep(1000);
-
-        // 패키지_수량
-        Assert.assertEquals("1개", driver.findElement(By.xpath("//*[@id=\"__next\"]/ul/li[2]/div/div[2]/span[2]")).getText());
-        System.out.println("패키지 수량 노출 확인");
-        Thread.sleep(1000);
-
-        // 패키지_합계
-        Assert.assertEquals("17,500원", driver.findElement(By.xpath("//*[@id=\"__next\"]/ul/li[2]/div/div[2]/span[1]")).getText());
-        System.out.println("패키지 합계 노출 확인");
-        Thread.sleep(1000);
-
-        // 할인상품_판매가
-        Assert.assertEquals("144,000원", driver.findElement(By.xpath("//*[@id=\"__next\"]/ul/li[1]/div/div[2]/span[2]")).getText());
-        System.out.println("할인상품 판매가 노출 확인");
-        Thread.sleep(1000);
-
-        // 할인상품_할인가
-        Assert.assertEquals("133,920원", driver.findElement(By.xpath("//*[@id=\"__next\"]/ul/li[1]/div/div[2]/span[1]")).getText());
-        System.out.println("할인상품 할인가 노출 확인");
+        Assert.assertEquals("[자동화] 오토멀티딜1\n" +
+                "[자동화] 오토멀티딜\n" +
+                "15,000원1개\n" +
+                "[자동화] 오토정률\n" +
+                "18,000원20,000원1개\n" +
+                "[자동화] 오토상온\n" +
+                "20,000원1개" , driver.findElement(By.xpath("//*[@id=\"__next\"]/div[3]/ul")).getText());
+        System.out.println("단품/패지기/할인 상품명/수량/금액 노출 확인");
         Thread.sleep(1000);
 
 

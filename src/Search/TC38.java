@@ -83,10 +83,12 @@ public class TC38 {
         // 검색
         WebElement serch16_btn = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@id=\"__next\"]/div[1]/div/div/div/div/input")));
         serch16_btn.sendKeys(Keys.ENTER);
+        Thread.sleep(2000);
 
         // 검색결과 화면
         WebElement serchwin_btn = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@id=\"container\"]/div/div/div/div")));
-        Assert.assertEquals("검색된 상품이 없습니다.", driver.findElement(By.xpath("//*[@id=\"container\"]/div/div/div/div")).getText());
+        Assert.assertEquals("검색된 상품이 없습니다.\n" +
+                        "다른 검색어를 입력해 주세요.", driver.findElement(By.xpath("//*[@id=\"container\"]/div/div/div/div")).getText());
         System.out.println("검색결과 확인");
         Thread.sleep(1000);
 

@@ -76,7 +76,7 @@ public class TC20 {
                 // 정액 상품 선택
                 WebElement prd_detail = wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[@id=\"__next\"]/div[3]/div[1]/div[2]/div[2]")));
                 Assert.assertEquals("25%15,000원", driver.findElement(By.xpath("//*[@id=\"__next\"]/div[3]/div[1]/div[2]/div[2]")).getText());
-                System.out.println("TC19 - 정액 할인가 노출 확인");
+                System.out.println("TC20 - 정액 할인가 노출 확인");
             //    Thread.sleep(1000);
 
                 Assert.assertEquals("20,000원", driver.findElement(By.xpath("//*[@id=\"__next\"]/div[3]/div[1]/div[2]/div[3]/span")).getText());

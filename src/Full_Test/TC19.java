@@ -27,7 +27,6 @@ public class TC19 {
                 ops.addArguments("--disable-gpu");
 
 
-
                 System.setProperty("webdriver.chrome.driver", "/Users/mk-am14-008/Documents/selenium/chromedriver");
 
                 Map<String, String> mobileEmulation = new HashMap<>();
@@ -86,13 +85,14 @@ public class TC19 {
                 // 장바구니 담기
                 WebElement cart_btn = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@id=\"__next\"]/footer/button[2]")));
                 cart_btn.click();
-
+                //Thread.sleep(2000);
                 WebElement cartcost = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("/html/body/div[2]/div[3]/div/div[2]/div[2]/div[1]/div[2]/div[1]/span[1]")));
                 Assert.assertEquals("18,000원", driver.findElement(By.xpath("/html/body/div[2]/div[3]/div/div[2]/div[2]/div[1]/div[2]/div[1]/span[1]")).getText());
                 System.out.println("장바구니팝업 할인가 노출 확인");
-
+                //Thread.sleep(1000);
                 Assert.assertEquals("20,000원", driver.findElement(By.xpath("/html/body/div[2]/div[3]/div/div[2]/div[2]/div[1]/div[2]/div[1]/span[2]")).getText());
                 System.out.println("장바구니팝업 판매가 노출 확인");
+               // Thread.sleep(1000);
 
                 WebElement carta_btn = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("/html/body/div[2]/div[3]/div/div[3]/button")));
                 carta_btn.click();

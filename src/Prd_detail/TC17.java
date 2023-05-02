@@ -71,7 +71,7 @@ public class TC17 {
                 // 검색 탭
                 WebElement serch_btn = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@id=\"__next\"]/div[4]/a[3]")));
                 serch_btn.click();
-
+                Thread.sleep(1000);
 
                 // 키워드 입력
 
@@ -79,7 +79,7 @@ public class TC17 {
                 keyword16_btn.click();
                 WebElement keywordinput16_btn = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@id=\"__next\"]/div[1]/div/div/div/div/input")));
                 keywordinput16_btn.sendKeys("[자동화] 솔드아웃");
-
+                Thread.sleep(1000);
 
                 // 검색
                 WebElement serch16_btn = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@id=\"__next\"]/div[1]/div/div/div/div/input")));

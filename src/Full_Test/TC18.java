@@ -78,7 +78,7 @@ public class TC18 {
                 WebElement keyword16_btn = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@id=\"__next\"]/div[1]/div/div[3]/div/input")));
                 keyword16_btn.click();
                 WebElement keywordinput16_btn = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@id=\"__next\"]/div[1]/div/div/div/div/input")));
-                keywordinput16_btn.sendKeys("[자동화]");
+                keywordinput16_btn.sendKeys("[자동화] 오토상온");
 
 
                 // 검색

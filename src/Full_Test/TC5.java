@@ -61,12 +61,6 @@ public class TC5 {
         pw_input.sendKeys("testtest00");
 
 
-        /* 카카카오 문구 확인
-        WebElement kakao = wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[@id=\"__next\"]/div[3]/form/div[5]/p")));
-        Assert.assertEquals("카카오로 간편하게 시작하세요", driver.findElement(By.xpath("//*[@id=\"__next\"]/div[3]/form/div[5]/p")).getText());
-        System.out.println("카카오 문구 확인"); */
-
-
         // 로그인 버튼 클릭
         WebElement login_btn = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@id=\"__next\"]/div[3]/form/div[3]/button[1]")));
         login_btn.click();
@@ -76,7 +70,7 @@ public class TC5 {
         WebElement cart_btn = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@id=\"__next\"]/div[1]/div/div/div[2]/button[2]")));
         cart_btn.click();
 
-        Thread.sleep(2000);
+        Thread.sleep(3000);
         // 냉장>냉동>상온>구매 불가 순
 
         Assert.assertEquals("냉장 상품", driver.findElement(By.xpath("//*[@id=\"__next\"]/div[8]/div/div/span")).getText());
@@ -88,26 +82,6 @@ public class TC5 {
         Assert.assertEquals("구매불가 상품", driver.findElement(By.xpath("//*[@id=\"__next\"]/div[17]/div/h4/div/span")).getText());
         Thread.sleep(100);
         System.out.println("냉장>냉동>상온>구매불가 순 노출");
-
-
-
-        /*냉장>냉동>상온>구매 불가 순
-
-
-        WebElement cold_prd = wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[@id=\"__next\"]/div[8]/div/div/span/span")));
-        Assert.assertEquals("냉장 상품", driver.findElement(By.xpath("//*[@id=\"__next\"]/div[8]/div/div/span/span")).getText());
-
-        WebElement frozen_prd = wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[@id=\"__next\"]/div[11]/div/div/span")));
-        Assert.assertEquals("냉동 상품", driver.findElement(By.xpath("//*[@id=\"__next\"]/div[11]/div/div/span")).getText());
-
-        WebElement room_prd = wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[@id=\"__next\"]/div[14]/div/div/span")));
-        Assert.assertEquals("상온 상품", driver.findElement(By.xpath("//*[@id=\"__next\"]/div[14]/div/div/span")).getText());
-
-        WebElement not_prd = wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[@id=\"__next\"]/div[17]/div/h4/div/span")));
-        Assert.assertEquals("구매불가 상품", driver.findElement(By.xpath("//*[@id=\"__next\"]/div[17]/div/h4/div/span")).getText());
-        System.out.println("냉장>냉동>상온>구매불가 순 노출");
-
-         */
 
 
         // after

@@ -1,4 +1,4 @@
-package Cart;
+package Home;
 
 import org.junit.Assert;
 import org.junit.Test;
@@ -82,7 +82,7 @@ public class TC11 {
         WebElement keyword_btn = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@id=\"__next\"]/div[1]/div/div[3]/div/input")));
         keyword_btn.click();
         WebElement keyinput_btn = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@id=\"__next\"]/div[1]/div/div/div/div/input")));
-        keyinput_btn.sendKeys("성인");
+        keyinput_btn.sendKeys("[자동화] 성인인증");
 
 
         // 검색
@@ -91,11 +91,11 @@ public class TC11 {
         keyinputenter_btn.sendKeys(Keys.ENTER);
 
         // 상품 선택
-        WebElement product1_btn = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@id=\"container\"]/div/div[2]/div[1]/div[2]/a[2]/div[1]/div/span/img")));
+        WebElement product1_btn = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@id=\"container\"]/div/div[2]/div[1]/div[2]/a/div[1]/div/span/img")));
         product1_btn.click();
 
 
-        //Thread.sleep(3000);
+        Thread.sleep(500);
 
 
 

@@ -60,16 +60,19 @@ public class TC48 {
         WebElement pw_input = wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[@id=\"__next\"]/div[3]/form/div[1]/div[2]/div/input")));
         pw_input.sendKeys("testtest00");
 
+        Thread.sleep(500);
 
 
         // 로그인 버튼 클릭
         WebElement login_btn = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@id=\"__next\"]/div[3]/form/div[3]/button[1]")));
         login_btn.click();
+        Thread.sleep(2000);
 
 
         // 주문내역상세
         WebElement orderdetail_btn = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@id=\"__next\"]/div[3]/div[3]/a[1]/div[1]")));
         orderdetail_btn.click();
+        Thread.sleep(500);
 
         // 주문내역 3년 정렬 후 진입
         WebElement orderdetail3year_btn = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@id=\"__next\"]/div[3]/div[1]/button[4]")));

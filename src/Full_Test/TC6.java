@@ -54,12 +54,6 @@ public class TC6 {
         pw_input.sendKeys("testtest00");
 
 
-        /* 카카카오 문구 확인
-        WebElement kakao = wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[@id=\"__next\"]/div[3]/form/div[5]/p")));
-        Assert.assertEquals("카카오로 간편하게 시작하세요", driver.findElement(By.xpath("//*[@id=\"__next\"]/div[3]/form/div[5]/p")).getText());
-        System.out.println("카카오 문구 확인"); */
-
-
         // 로그인 버튼 클릭
         WebElement login_btn = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@id=\"__next\"]/div[3]/form/div[3]/button[1]")));
         login_btn.click();
@@ -71,11 +65,6 @@ public class TC6 {
 
 
         // 상품금액
-        //Assert.assertEquals("45,000원", driver.findElement(By.xpath("//*[@id=\"__next\"]/div[19]/div[1]")).getText());
-       // Thread.sleep(500);
-        //System.out.println("상품금액 합계 확인");
-
-
         WebElement product_cost = wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[@id=\"__next\"]/div[19]/div[1]/span[2]")));
         Assert.assertEquals("45,000원", driver.findElement(By.xpath("//*[@id=\"__next\"]/div[19]/div[1]/span[2]")).getText());
         System.out.println("상품금액 합계 확인");
@@ -91,7 +80,6 @@ public class TC6 {
         // 배송비
         Assert.assertEquals("0원", driver.findElement(By.xpath("//*[@id=\"__next\"]/div[19]/div[3]/span[2]")).getText());
         Thread.sleep(500);
-        //Assert.assertEquals("18,610원 추가주문 시, 무료배송", driver.findElement(By.xpath("//*[@id=\"__next\"]/div[19]/p")).getText());
         System.out.println("배송비 확인");
         Thread.sleep(500);
 
@@ -99,7 +87,6 @@ public class TC6 {
         Assert.assertEquals("45,000원", driver.findElement(By.xpath("//*[@id=\"__next\"]/div[19]/div[4]/span[2]")).getText());
         System.out.println("결제예정금액 확인");
 
-//*[@id="__next"]/footer/button/span
 
         // after
         driver.close();

@@ -76,12 +76,12 @@ public class TC14 {
         // 장바구니 아이콘 클릭
         WebElement cart_btn = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@id=\"__next\"]/div[1]/div/div/div[2]/button[2]")));
         cart_btn.click();
-
+        Thread.sleep(1000);
 
         // 쿠폰다운로드 배너 상품 선택
         WebElement couponbaner_btn = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@id=\"__next\"]/ul/li[1]/div/div/div/a/span")));
         couponbaner_btn.click();
-
+        Thread.sleep(1000);
 
         // 쿠폰다운로드 배너 확인
         WebElement couponbaner = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@id=\"__next\"]/div[3]/div[1]/div[2]/button/span")));

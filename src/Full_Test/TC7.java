@@ -62,12 +62,6 @@ public class TC7 {
         pw_input.sendKeys("testtest00");
 
 
-        /* 카카카오 문구 확인
-        WebElement kakao = wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[@id=\"__next\"]/div[3]/form/div[5]/p")));
-        Assert.assertEquals("카카오로 간편하게 시작하세요", driver.findElement(By.xpath("//*[@id=\"__next\"]/div[3]/form/div[5]/p")).getText());
-        System.out.println("카카오 문구 확인"); */
-
-
         // 로그인 버튼 클릭
         WebElement login_btn = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@id=\"__next\"]/div[3]/form/div[3]/button[1]")));
         login_btn.click();
@@ -79,11 +73,6 @@ public class TC7 {
 
 
         // 스텝퍼 + 선택시 금액 증가
-        //driver.findElement(By.xpath("//*[@id=\"__next\"]/ul[1]/li/div/div/div/div/div/button[2]")).click();
-        //Assert.assertEquals("35,760원", driver.findElement(By.xpath("//*[@id=\"__next\"]/div[13]/div[1]/span[2]")).getText());
-        //System.out.println("+시 금액 증가");
-        //Thread.sleep(1000);
-
         WebElement puls_btn = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@id=\"__next\"]/ul[1]/li/div/div/div/div/div/button[2]")));
         puls_btn.click();
         Assert.assertEquals("150,000원", driver.findElement(By.xpath("//*[@id=\"__next\"]/div[13]/div[1]/span[2]")).getText());
@@ -91,11 +80,6 @@ public class TC7 {
 
 
         //스텝퍼 - 선택시 금액 감소
-        //driver.findElement(By.xpath("//*[@id=\"__next\"]/ul[1]/li/div/div/div/div/div/button[1]")).click();
-        //Assert.assertEquals("22,780원", driver.findElement(By.xpath("//*[@id=\"__next\"]/div[13]/div[1]/span[2]")).getText());
-        //System.out.println("-시 금액 감소");
-        //Thread.sleep(1000);
-
         WebElement minus_btn = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@id=\"__next\"]/ul[1]/li/div/div/div/div/div/button[1]")));
         minus_btn.click();
         Assert.assertEquals("135,000원", driver.findElement(By.xpath("//*[@id=\"__next\"]/div[13]/div[1]/span[2]")).getText());
@@ -104,9 +88,6 @@ public class TC7 {
         //최소구매 수량 얼럿
         WebElement minus1_btn = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@id=\"__next\"]/ul[2]/li[2]/div/div/div/div/div/button[1]")));
         minus1_btn.click();
-
-        //driver.findElement(By.xpath("//*[@id=\"__next\"]/ul[2]/li[2]/div/div/div/div/div/button[1]")).click();
-        //Thread.sleep(500);
 
         Assert.assertEquals("[자동화] 오토최소구매 상품의 최소 구매 수량은 3개 입니다.", driver.findElement(By.xpath("//*[@id=\"swal2-content\"]/div[1]")).getText());
         System.out.println("최소구매 수량 얼럿 확인");
@@ -119,16 +100,11 @@ public class TC7 {
         WebElement plus1_btn = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@id=\"__next\"]/ul[2]/li[1]/div/div/div/div/div/button[2]")));
         plus1_btn.click();
 
-        //driver.findElement(By.xpath("//*[@id=\"__next\"]/ul[2]/li[1]/div/div/div/div/div/button[2]")).click();
-        //Thread.sleep(500);
-
         Assert.assertEquals("[자동화] 오토최대구매 상품의 최대 구매 수량은 3개 입니다.", driver.findElement(By.xpath("//*[@id=\"swal2-content\"]/div[1]")).getText());
         System.out.println("최대구매 수량 얼럿 확인");
         Thread.sleep(500);
 
         driver.findElement(By.xpath("//*[@id=\"swal2-content\"]/div[2]/button")).click();
-        //WebElement ok1_btn = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@id=\\\"swal2-content\\\"]/div[2]/button")));
-        //ok1_btn.click();
 
         // after
         driver.close();
