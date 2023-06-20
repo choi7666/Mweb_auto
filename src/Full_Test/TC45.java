@@ -71,6 +71,7 @@ public class TC45 {
         cart_btn.click();
 
         // 장바구니 페이지 타이틀 확인
+        Thread.sleep(2000);
         WebElement carttitle = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@id=\"__next\"]/div[1]/div[3]/div[2]/h1")));
         Assert.assertEquals("장바구니", driver.findElement(By.xpath("//*[@id=\"__next\"]/div[1]/div[3]/div[2]/h1")).getText());
         System.out.println("장바구니 페이지 이동 확인");

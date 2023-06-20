@@ -42,6 +42,15 @@ public class TC4 {
         WebDriver driver = new ChromeDriver(chromeOptions);
 
 
+        /*
+        [TC]
+        1. 저장된 배송지가 있는 회원>장바구니 배송지영역 선택 시 배송지관리페이지로 이동 확인
+        ㄴ배송지관리페이지에서 배송지 선택 시 '배송지 변경으로 상품 정보가 업데이트됩니다' 토스트 팝업 노출
+        ㄴ배송지 추가,수정,삭제 동작 확인
+        2. 저장된 배송지가 없는 회원 >장바구니 배송지영역 > 추가 문구 선택 시 주소검색(웹뷰) 노출 확인
+        ㄴ샛별배송,낮배송,배송불가지역 추가 동작 확인
+         */
+
         // stg 접속
         driver.get("https://www.stg.kurly.com/member/login?return_url=/mypage");
 
@@ -69,9 +78,12 @@ public class TC4 {
         WebElement cart_btn = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@id=\"__next\"]/div[1]/div/div/div[2]/button[2]")));
         cart_btn.click();
 
+        Thread.sleep(2000);
+
         //배송지 변경 버튼 클릭
-        WebElement delivery_btn = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@id=\"__next\"]/div[3]/span")));
+        WebElement delivery_btn = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@id=\"__next\"]/div[3]/div/button")));
         delivery_btn.click();
+
 
 
         // 새창 핸들
@@ -108,7 +120,7 @@ public class TC4 {
         // after
 
         // 배송지 변경 버튼 클릭
-        WebElement delivery1_btn = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@id=\"__next\"]/div[3]/span")));
+        WebElement delivery1_btn = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@id=\"__next\"]/div[3]/div/button")));
         delivery1_btn.click();
 
         // 새창 핸들

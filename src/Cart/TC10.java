@@ -75,6 +75,7 @@ public class TC10 {
         buy_btn.click();
 
         // 주문서 페이지 타이틀 확인
+        Thread.sleep(2000);
         WebElement buytitle_btn = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@id=\"__next\"]/div[1]/div[2]/div[2]/h1")));
         Assert.assertEquals("주문서", driver.findElement(By.xpath("//*[@id=\"__next\"]/div[1]/div[2]/div[2]/h1")).getText());
         System.out.println("주문서 페이지 이동 확인");

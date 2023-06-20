@@ -96,7 +96,7 @@ public class TC49 {
 
 
         // 적립금 모두 사용
-        WebElement point_btn = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@id=\"__next\"]/div[11]/div[2]/button")));
+        WebElement point_btn = wait.until(ExpectedConditions.elementToBeClickable(By.xpath(" //*[@id=\"__next\"]/div[13]/div[2]/button")));
         point_btn.click();
 
 
@@ -107,7 +107,7 @@ public class TC49 {
 
 
         // 0원 결제 하기
-        WebElement pointbuy_btn = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@id=\"__next\"]/div[17]/button")));
+        WebElement pointbuy_btn = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@id=\"__next\"]/div[18]/button")));
         pointbuy_btn.click();
         Thread.sleep(5000);
 
@@ -115,13 +115,13 @@ public class TC49 {
         WebElement pointbuy1_btn = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@id=\"__next\"]/div/footer/div/button[1]/span")));
         Assert.assertEquals("주문 상세보기", driver.findElement(By.xpath("//*[@id=\"__next\"]/div/footer/div/button[1]/span")).getText());
         pointbuy1_btn.click();
-        Thread.sleep(500);
+        Thread.sleep(1500);
 
         // 주문 상품 주문 취소
-        WebElement selfcancel_btn = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@id=\"__next\"]/div[12]/button/span")));
-        Assert.assertEquals("전체 상품 주문 취소", driver.findElement(By.xpath("//*[@id=\"__next\"]/div[12]/button/span")).getText());
+        WebElement selfcancel_btn = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@id=\"__next\"]/div[12]/button")));
+        Assert.assertEquals("전체 상품 주문 취소", driver.findElement(By.xpath("//*[@id=\"__next\"]/div[12]/button")).getText());
         selfcancel_btn.click();
-        Thread.sleep(2500);
+        Thread.sleep(1500);
         WebElement selfcancelok_btn = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@id=\"swal2-content\"]/div[2]/button[2]")));
         selfcancelok_btn.click();
         Thread.sleep(1000);
@@ -141,7 +141,7 @@ public class TC49 {
 
         WebElement selfcancelok3_btn = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@id=\"swal2-content\"]/div[2]/button[2]")));
         selfcancelok3_btn.click();
-        Thread.sleep(1000);
+        Thread.sleep(2000);
         //주문 취소 완료 페이지
         WebElement canaft = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@id=\"__next\"]/div[1]/div[2]/div[2]/h1")));
         Assert.assertEquals("주문 취소 완료", driver.findElement(By.xpath("//*[@id=\"__next\"]/div[1]/div[2]/div[2]/h1")).getText());

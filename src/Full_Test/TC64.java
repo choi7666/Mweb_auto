@@ -88,24 +88,24 @@ public class TC64 {
  */
 
         // 적립금 입력 영역
-        Assert.assertEquals("", driver.findElement(By.xpath("//*[@id=\"__next\"]/div[11]/div[2]/div/div/input")).getText());
+        Assert.assertEquals("", driver.findElement(By.xpath("//*[@id=\"__next\"]/div[13]/div[2]/div/div/input")).getText());
         System.out.println("적립금 입력영역 : 0 노출 확인");
         Thread.sleep(500);
 
         // 사용가능 적립금
-        Assert.assertEquals("사용가능 적립금 10,000원", driver.findElement(By.xpath("//*[@id=\"__next\"]/div[11]/div[3]")).getText());
+        Assert.assertEquals("사용가능 적립금 10,000원", driver.findElement(By.xpath("//*[@id=\"__next\"]/div[13]/div[3]")).getText());
         System.out.println("사용가능 적립금 노출 확인");
         Thread.sleep(500);
 
         // 적립금 모두사용 버튼 선택
-                WebElement pointall_btn = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@id=\"__next\"]/div[11]/div[2]/button")));
+                WebElement pointall_btn = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@id=\"__next\"]/div[13]/div[2]/button")));
                 pointall_btn.click();
                 Thread.sleep(1500);
 
 
 
         // 적립금 적용 확인
-        Assert.assertEquals("-10,000", driver.findElement(By.xpath("//*[@id=\"__next\"]/div[14]/div[2]/div[7]/div[2]/span[1]")).getText());
+        Assert.assertEquals("-10,000", driver.findElement(By.xpath("//*[@id=\"__next\"]/div[15]/div[2]/div[7]/div[2]/span[1]")).getText());
         System.out.println("적립금 적용 확인");
         Thread.sleep(500);
 
@@ -114,17 +114,17 @@ public class TC64 {
         pointdel_btn.click();
         Thread.sleep(1000);
 
-        Assert.assertEquals("", driver.findElement(By.xpath("//*[@id=\"__next\"]/div[11]/div[2]/div/div/input")).getText());
+        Assert.assertEquals("", driver.findElement(By.xpath("//*[@id=\"__next\"]/div[13]/div[2]/div/div/input")).getText());
         System.out.println("적립금 입력영역 : 0 노출 확인");
         Thread.sleep(500);
 
         // 적립금 최대금액 이상 입력
-        WebElement point_input = wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[@id=\"__next\"]/div[11]/div[2]/div/div/input")));
+        WebElement point_input = wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[@id=\"__next\"]/div[13]/div[2]/div/div/input")));
         point_input.sendKeys("100000000");
         Thread.sleep(500);
 
         //적립금 적용 확인
-        Assert.assertEquals("-10,000", driver.findElement(By.xpath("//*[@id=\"__next\"]/div[14]/div[2]/div[7]/div[2]/span[1]")).getText());
+        Assert.assertEquals("-10,000", driver.findElement(By.xpath("//*[@id=\"__next\"]/div[15]/div[2]/div[7]/div[2]/span[1]")).getText());
         System.out.println("보유적립금 최대금액 적용 확인");
         Thread.sleep(500);
 

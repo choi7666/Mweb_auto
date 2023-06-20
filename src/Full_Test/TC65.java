@@ -91,7 +91,7 @@ public class TC65 {
         }
 
         // 배송비 0원
-        Assert.assertEquals("0원", driver.findElement(By.xpath("//*[@id=\"__next\"]/div[15]/div[2]/div[4]/div[2]")).getText());
+        Assert.assertEquals("0원", driver.findElement(By.xpath("//*[@id=\"__next\"]/div[17]/div[2]/div[4]/div[2]")).getText());
         System.out.println("배송비 무료 상폼 포함 주문 시 배송비 0원 적용 확인");
         Thread.sleep(1000);
 

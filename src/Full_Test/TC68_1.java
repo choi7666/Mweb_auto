@@ -89,7 +89,7 @@ public class TC68_1 {
 
                 // 적립금 모두사용
 
-                WebElement pointuse_btn = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@id=\"__next\"]/div[11]/div[2]/button")));
+                WebElement pointuse_btn = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@id=\"__next\"]/div[13]/div[2]/button")));
                 pointuse_btn.click();
                 Thread.sleep(1000);
 
@@ -105,7 +105,7 @@ public class TC68_1 {
 
                 // 결제하기 버튼 선택
 
-                WebElement pointbuy_btn = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@id=\"__next\"]/div[17]/button")));
+                WebElement pointbuy_btn = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@id=\"__next\"]/div[18]/button")));
                 pointbuy_btn.click();
                 Thread.sleep(5000);
 
@@ -113,7 +113,7 @@ public class TC68_1 {
 
 
                 //주문완료페이지>주문 상세보기 버튼 클릭
-                WebElement orderdetail_btn = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@id=\"__next\"]/div/footer/div/button[1]/span")));
+                WebElement orderdetail_btn = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@id=\"__next\"]/div/footer/div/button[1]")));
                 orderdetail_btn.click();
                 Thread.sleep(1500);
 

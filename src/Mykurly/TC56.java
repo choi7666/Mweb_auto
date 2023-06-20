@@ -66,7 +66,7 @@ public class TC56 {
                 // 로그인 버튼 클릭
                 WebElement login_btn = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@id=\"__next\"]/div[3]/form/div[3]/button[1]")));
                 login_btn.click();
-                Thread.sleep(500);
+                Thread.sleep(1000);
 
                 // 개인정보수정 메뉴
                 driver.get("https://www.stg.kurly.com/mypage/info");

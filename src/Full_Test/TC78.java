@@ -89,7 +89,7 @@ public class TC78 {
 
                 // 적립금 모두사용
 
-                WebElement pointuse_btn = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@id=\"__next\"]/div[11]/div[2]/button")));
+                WebElement pointuse_btn = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@id=\"__next\"]/div[13]/div[2]/button")));
                 pointuse_btn.click();
                 Thread.sleep(1000);
 
@@ -102,7 +102,7 @@ public class TC78 {
 
                 // 결제하기 버튼 선택
 
-                WebElement pointbuy_btn = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@id=\"__next\"]/div[17]/button")));
+                WebElement pointbuy_btn = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@id=\"__next\"]/div[18]/button")));
                 pointbuy_btn.click();
                 Thread.sleep(6000);
 
@@ -112,12 +112,12 @@ public class TC78 {
                 Thread.sleep(500);
                 Assert.assertEquals("내일 새벽에 만나요!", driver.findElement(By.xpath("//*[@id=\"__next\"]/div/div[3]/div[1]/div/p[2]")).getText());
                 Thread.sleep(500);
-                Assert.assertEquals("0원", driver.findElement(By.xpath("//*[@id=\"__next\"]/div/div[3]/div[3]/div/span[2]")).getText());
+                Assert.assertEquals("0원", driver.findElement(By.xpath("//*[@id=\"__next\"]/div/div[3]/div[4]/div/span[2]")).getText());
                 Thread.sleep(500);
 
                 Assert.assertEquals("[주문완료] 상태일 경우에만 주문내역 상세페이지에서 주문 취소가 가능합니다.\n" +
-                        "엘리베이터 이용이 어려운 경우 6층 이상부터는 공동 현관 앞 또는 경비실로 대응 배송 될 수 있습니다.\n" +
-                        "주문 / 배송 및 기타 문의가 있을 경우, 1:1 문의에 남겨주시면 신속히 해결해드리겠습니다.", driver.findElement(By.xpath("//*[@id=\"__next\"]/div/div[3]/div[5]/ul")).getText());
+                        "엘리베이터 이용이 어려운 경우 6층 이상부터는 공동 현관 앞 또는 경비실로 대응 배송 될 수 있습니다.\n" + "실제 출입 정보가 다를 경우, 부득이하게 1층 공동현관 앞 또는 경비실 앞에 배송될 수 있습니다.\n" +
+                        "주문 / 배송 및 기타 문의가 있을 경우, 1:1 문의에 남겨주시면 신속히 해결해드리겠습니다.", driver.findElement(By.xpath("//*[@id=\"__next\"]/div/div[3]/div[6]/ul")).getText());
 
 
 

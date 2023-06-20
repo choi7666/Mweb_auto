@@ -104,7 +104,7 @@ public class TC62 {
         System.out.println("받으실분 / 휴대폰 노출 확인");
         Thread.sleep(1000);
 
-        Assert.assertEquals("수정", driver.findElement(By.xpath("//*[@id=\"shipping-container\"]/div[2]/div[2]/button")).getText());
+        Assert.assertEquals("수정", driver.findElement(By.xpath("//*[@id=\"shipping-container\"]/div/div/button")).getText());
         System.out.println("수정 버튼 노출 확인");
         Thread.sleep(1000);
 

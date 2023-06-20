@@ -84,8 +84,8 @@ public class TC14 {
         Thread.sleep(1000);
 
         // 쿠폰다운로드 배너 확인
-        WebElement couponbaner = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@id=\"__next\"]/div[3]/div[1]/div[2]/button/span")));
-        Assert.assertEquals("[자동화] 쿠폰배너", driver.findElement(By.xpath("//*[@id=\"__next\"]/div[3]/div[1]/div[2]/button/span")).getText());
+        WebElement couponbaner = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@id=\"__next\"]/div[3]/div[1]/div[2]/div[1]/div[2]/h2")));
+        Assert.assertEquals("[자동화] 쿠폰배너", driver.findElement(By.xpath("//*[@id=\"__next\"]/div[3]/div[1]/div[2]/div[1]/div[2]/h2")).getText());
         Thread.sleep(100);
         System.out.println("쿠폰다운로드배너 노출 확인");
 

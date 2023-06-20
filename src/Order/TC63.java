@@ -89,7 +89,7 @@ public class TC63 {
 
 
         // 쿠폰리스트에서 카카오페이 쿠폰 선택
-                WebElement coupon1_btn = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@id=\"__next\"]/div[7]/div[2]/button/span")));
+                WebElement coupon1_btn = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@id=\"__next\"]/div[9]/div[2]/button/span")));
                 coupon1_btn.click();
                 Thread.sleep(500);
 
@@ -101,12 +101,14 @@ public class TC63 {
                 coupon3_btn.click();
                 Thread.sleep(500);
 
-                WebElement coupon4_btn = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@id=\"swal2-content\"]/div[2]/button")));
+               /* WebElement coupon4_btn = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@id=\"swal2-content\"]/div[2]/button")));
                 coupon4_btn.click();
                 Thread.sleep(500);
 
+                */
+
         // 적립금 모두사용 버튼 비활성화
-                WebElement point_btn = wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[@id=\"__next\"]/div[11]/div[2]/button")));
+                WebElement point_btn = wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[@id=\"__next\"]/div[13]/div[2]/button/span")));
                 String disabled = point_btn.getAttribute("disabled");
                 if (disabled == null || disabled.equals("true")) {
                         System.out.println("TC63 - 적립금 모두사용 버튼 비활성화 확인");
@@ -118,26 +120,26 @@ public class TC63 {
                 Thread.sleep(500);
 
         // 결제수단 영역 카카오페이 안내 문구
-        Assert.assertEquals("카카오페이 전용 쿠폰 사용 시, 카카오페이 결제만 가능합니다.", driver.findElement(By.xpath("//*[@id=\"__next\"]/div[13]/div/div[2]")).getText());
+        Assert.assertEquals("카카오페이 전용 쿠폰 사용 시, 카카오페이 결제만 가능합니다.", driver.findElement(By.xpath("//*[@id=\"__next\"]/div[15]/div/div[2]")).getText());
         System.out.println("결제수단 카카오페이 문구 노출 확인");
         Thread.sleep(500);
 
         // 쿠폰 할인 금액
-        Assert.assertEquals("-1,000", driver.findElement(By.xpath("//*[@id=\"__next\"]/div[15]/div[2]/div[5]/div[2]/span[1]")).getText());
+        Assert.assertEquals("-1,000", driver.findElement(By.xpath("//*[@id=\"__next\"]/div[17]/div[2]/div[5]/div[2]/span[1]")).getText());
         System.out.println("쿠폰할인금액 노출 확인");
         Thread.sleep(500);
 
         // 카카오페이 외 결제수단 미노출
-        Assert.assertEquals("카카오페이", driver.findElement(By.xpath("//*[@id=\"__next\"]/div[13]/div/div[1]/span")).getText());
+        Assert.assertEquals("카카오페이", driver.findElement(By.xpath("//*[@id=\"__next\"]/div[15]/div/div[1]/span")).getText());
         System.out.println("카카오페이 외 결제수단 미노출 확인");
         Thread.sleep(500);
 
         // 쿠폰리스트에서 카카오페이 외 쿠폰 선택
-                WebElement coupon11_btn = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@id=\"__next\"]/div[7]/div[2]/button")));
+                WebElement coupon11_btn = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@id=\"__next\"]/div[9]/div[2]/button")));
                 coupon11_btn.click();
                 Thread.sleep(500);
 
-                WebElement coupon22_btn = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("/html/body/div[2]/div[3]/div/div[1]/label/span[1]")));
+                WebElement coupon22_btn = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("/html/body/div[2]/div[3]/div/div[1]/label/span[2]/div")));
                 coupon22_btn.click();
                 Thread.sleep(500);
 
@@ -147,7 +149,7 @@ public class TC63 {
 
 
 
-        boolean displayed = driver.findElement(By.xpath("//*[@id=\"__next\"]/div[11]/div[2]/button")).isDisplayed();
+        boolean displayed = driver.findElement(By.xpath("//*[@id=\"__next\"]/div[13]/div[2]/button/span")).isDisplayed();
         System.out.println("카카오페이 외 결제 수단 노출 확인");
         Thread.sleep(1000);
 

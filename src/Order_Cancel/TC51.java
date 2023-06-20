@@ -120,7 +120,7 @@ public class TC51 {
 
         // 결제하기 버튼 선택
 
-                WebElement pointbuy_btn = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@id=\"__next\"]/div[17]/button")));
+                WebElement pointbuy_btn = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@id=\"__next\"]/div[18]/button")));
                 pointbuy_btn.click();
                 Thread.sleep(6000);
 

@@ -66,7 +66,7 @@ public class TC66 {
                 // 로그인 버튼 클릭
                 WebElement login_btn = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@id=\"__next\"]/div[3]/form/div[3]/button[1]")));
                 login_btn.click();
-                Thread.sleep(500);
+                Thread.sleep(1000);
 
                 // 장바구니  이동
                 driver.get("https://www.stg.kurly.com/cart");
@@ -92,7 +92,7 @@ public class TC66 {
 
                 Thread.sleep(500);
         // 결제수단 신용카드 선택
-        WebElement card_btn = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@id=\"__next\"]/div[13]/div/div/div[4]/button[1]")));
+        WebElement card_btn = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@id=\"__next\"]/div[15]/div/div[1]/div[4]/button[1]")));
         card_btn.click();
 
 
@@ -103,7 +103,7 @@ public class TC66 {
                 Thread.sleep(2000);
 
         // 개인정보 수집,이용 및 처리동의 팝업
-        WebElement agree1_btn = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@id=\"__next\"]/div[17]/div[2]/div[1]/button")));
+        WebElement agree1_btn = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@id=\"__next\"]/div[19]/div[2]/div[1]/button")));
         agree1_btn.click();
         Thread.sleep(500);
 
@@ -117,7 +117,7 @@ public class TC66 {
 
 
         // 결제대행 서비스 약관 동의 팝업
-        WebElement agree2_btn = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@id=\"__next\"]/div[17]/div[2]/div[2]/button")));
+        WebElement agree2_btn = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@id=\"__next\"]/div[19]/div[2]/div[2]/button")));
         agree2_btn.click();
 
         Thread.sleep(1500);
@@ -133,7 +133,7 @@ public class TC66 {
 
 
         // 전자지급 결제대행 서비스 이용약관 동의 팝업
-        WebElement agree3_btn = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@id=\"__next\"]/div[17]/div[2]/div[3]/button")));
+        WebElement agree3_btn = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@id=\"__next\"]/div[19]/div[2]/div[3]/button")));
         agree3_btn.click();
 
         Thread.sleep(1500);

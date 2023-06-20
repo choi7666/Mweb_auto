@@ -76,15 +76,15 @@ public class TC13 {
         // 장바구니 아이콘 클릭
         WebElement cart_btn = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@id=\"__next\"]/div[1]/div/div/div[2]/button[2]")));
         cart_btn.click();
-
+        Thread.sleep(1000);
 
         // URL 배너 상품 선택
         WebElement urlbaner_btn = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@id=\"__next\"]/ul/li[2]/div/div/div/a/span")));
         urlbaner_btn.click();
 
         // URL 배너 확인
-        WebElement urlbaner = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@id=\"__next\"]/div[3]/div[1]/div[2]/button/span")));
-        Assert.assertEquals("[자동화] url배너", driver.findElement(By.xpath("//*[@id=\"__next\"]/div[3]/div[1]/div[2]/button/span")).getText());
+        WebElement urlbaner = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@id=\"__next\"]/div[3]/div[1]/div[2]/div[1]/div[2]/h2")));
+        Assert.assertEquals("[자동화] url배너", driver.findElement(By.xpath("//*[@id=\"__next\"]/div[3]/div[1]/div[2]/div[1]/div[2]/h2")).getText());
         Thread.sleep(500);
         System.out.println("URL 배너 노출 확인");
 
@@ -96,7 +96,7 @@ public class TC13 {
         Thread.sleep(500);
 
         // URL 배너 선택 후 뒤로가기
-        WebElement urlbane_btn = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@id=\"__next\"]/div[3]/div[1]/div[2]/button")));
+        WebElement urlbane_btn = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@id=\"__next\"]/div[3]/div[1]/div[2]/div[3]/div")));
         urlbane_btn.click();
         System.out.println("URL 링크 이동");
 
@@ -105,8 +105,8 @@ public class TC13 {
         driver.navigate().back();
 
         // url 배너 상품 복귀
-        WebElement url_banner3 = wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[@id=\"__next\"]/div[3]/div[1]/div[2]/button/span")));
-        Assert.assertEquals("[자동화] url배너", driver.findElement(By.xpath("//*[@id=\"__next\"]/div[3]/div[1]/div[2]/button/span")).getText());
+        WebElement url_banner3 = wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[@id=\"__next\"]/div[3]/div[1]/div[2]/div[1]/div[2]/h2")));
+        Assert.assertEquals("[자동화] url배너", driver.findElement(By.xpath("//*[@id=\"__next\"]/div[3]/div[1]/div[2]/div[1]/div[2]/h2")).getText());
 
 
         driver.close();

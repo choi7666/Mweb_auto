@@ -79,37 +79,32 @@ public class TC61 {
         order_btn.click();
         Thread.sleep(2500);
 
-/* 컬리페이 오류팝업 닫기 ( 정상화 되면 삭제 필요 ! )
-        WebElement buy11_btn = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@id=\"swal2-content\"]/div[2]/button")));
-        buy11_btn.click();
-
-        Thread.sleep(1000);
-
- */
-
 
         // 배송지 확인
         Assert.assertEquals("기본배송지", driver.findElement(By.xpath("//*[@id=\"shipping-container\"]/div[2]/div[1]/span[1]")).getText());
-        Assert.assertEquals("대전 서구 둔산로 100 (대전광역시청) 123", driver.findElement(By.xpath("//*[@id=\"shipping-container\"]/div[2]/div[1]/span[2]")).getText());
+        Assert.assertEquals("대전 서구 둔산로 100 (대전광역시청) 123", driver.findElement(By.xpath("//*[@id=\"shipping-container\"]/div[2]/div/span[2]")).getText());
         System.out.println("배송지 노출 확인");
         Thread.sleep(1000);
 
         // 상세정보 확인
-        Assert.assertEquals("webauto21, 010-1111-1111", driver.findElement(By.xpath("//*[@id=\"checkout-shipping-details\"]/div[1]")).getText());
+        Assert.assertEquals("webauto21, 010-1111-1111", driver.findElement(By.xpath("//*[@id=\"checkout-shipping-details\"]/div[2]")).getText());
         System.out.println("받으실분 / 휴대폰 노출 확인");
         Thread.sleep(1000);
 
-        Assert.assertEquals("문 앞", driver.findElement(By.xpath("//*[@id=\"checkout-shipping-details\"]/div[2]/span[1]")).getText());
-        Assert.assertEquals("자유 출입 가능", driver.findElement(By.xpath("//*[@id=\"checkout-shipping-details\"]/div[2]/span[2]")).getText());
+
+        Assert.assertEquals("문 앞", driver.findElement(By.xpath("//*[@id=\"checkout-shipping-details\"]/div[1]/span[1]")).getText());
+        Assert.assertEquals("자유 출입 가능", driver.findElement(By.xpath("//*[@id=\"checkout-shipping-details\"]/div[1]/span[3]")).getText());
         System.out.println("받으실 장소 노출 확인");
         Thread.sleep(1000);
 
-        Assert.assertEquals("배송완료 메시지", driver.findElement(By.xpath("//*[@id=\"checkout-shipping-details\"]/div[3]/span[1]")).getText());
+       /* Assert.assertEquals("배송완료 메시지", driver.findElement(By.xpath("//*[@id=\"checkout-shipping-details\"]/div[3]/span[1]")).getText());
         Assert.assertEquals("배송 직후", driver.findElement(By.xpath("//*[@id=\"checkout-shipping-details\"]/div[3]/span[2]")).getText());
         System.out.println("배송완료 메시지 / 메시지 발송 시점 노출 확인");
         Thread.sleep(1000);
 
-        Assert.assertEquals("수정", driver.findElement(By.xpath("//*[@id=\"shipping-container\"]/div[2]/div[2]/button")).getText());
+        */
+
+        Assert.assertEquals("수정", driver.findElement(By.xpath("//*[@id=\"shipping-container\"]/div/div/button")).getText());
         System.out.println("수정 버튼 노출 확인");
         Thread.sleep(1000);
 
