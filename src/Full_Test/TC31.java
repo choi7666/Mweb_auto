@@ -97,13 +97,13 @@ public class TC31 {
                 WebElement popupcart_btn = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("/html/body/div[2]/div[3]/div/div[2]")));
                 Assert.assertEquals("[자동화] 오토멀티딜\n" +
                         "[자동화] 오토멀티딜\n" +
-                        "[자동화] 오토멀티딜3\n" +
+                        "[자동화] 오토멀티딜1\n" +
                         "15,000원\n" +
                         "1\n" +
                         "[자동화] 오토멀티딜2\n" +
                         "13,500원15,000원\n" +
                         "1\n" +
-                        "[자동화] 오토멀티딜1\n" +
+                        "[자동화] 오토멀티딜3\n" +
                         "15,000원\n" +
                         "1\n" +
                         "적립\n" +

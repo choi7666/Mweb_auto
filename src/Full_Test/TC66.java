@@ -86,7 +86,7 @@ public class TC66 {
                 Thread.sleep(1500);
 
  */
-                for (int i = 0; i < 10; i++) {
+                for (int i = 0; i < 15; i++) {
                         driver.findElement(By.cssSelector("body")).sendKeys(Keys.ARROW_DOWN);
                 }
 
